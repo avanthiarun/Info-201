@@ -1,0 +1,214 @@
+---
+title: "Final Project -- Data Analysis & Dashboard"
+author: "BH8"
+date: today
+format: 
+  dashboard:
+    embed-resources: true
+    scrolling: true
+---
+
+# Introduction of the Topic
+
+### 1.1: Providing Topical Overview
+
+Healthcare accessibility is an important component of the local community that ensures citizens (residents) receive needed services that particularly improve health outcomes and prevent (including the spread of) diseases. In the United States, many rural hospitals have closed over the past decade due to various challenges (such as financial pressures, declining populations, etc). The closures of hospitals directly lead to the loss of access to emergency care, local medical services, treatment facilities, and local healthcare employment opportunities in the region. Unfortunately, poverty deepens these challenges, creating a vicious cycle of reinforcement between health risks and economic vulnerability.
+
+According to the American Hospital Association (link: <https://www.aha.org/system/files/media/file/2023/05/aha-statement-to-senate-finance-committee-subcommittee-on-health-on-improving-rural-health-care-access-5-17-2023.pdf),> rural hospitals often face financial instability due to their service to a smaller community (population volume) while having a higher percentage of patients who are uninsured. These financial challenges can make it difficult for hospitals to maintain their operations. Economic challenges, such as poverty, may further deepen the healthcare challenges. Communities experiencing higher poverty rates may have fewer resources (particularly budget) to maintain their healthcare system and may rely even more heavily on local hospitals for basic essential healthcare services. This results in the cycle of inequality in health and economics as hospitals close in these areas due to financial challenges.
+
+By exploring the data on hospital closures and poverty in the United States, our project aims to investigate how poverty and economic conditions contribute to the accessibility of healthcare services (especially in rural counties) and provide guidance for policy decisions and healthcare planning based on the evidence of the most affected communities.
+
+Our project is guide by the following three major research questions:
+
+i)  **Is there a relationship between county poverty rate and frequency of rural hospital closures? (Do hospital closures in the higher poverty counties occur more recently compared to those in lower poverty counties?)**
+ii) **Are certain states experiencing a higher concentration of hospital closures in high poverty?**
+iii) **How have rural hospital closures changed over time in the United States?**
+
+To answer these guided questions, we combine two datasets. The first dataset (from the University of North Carolina at Chapel Hill) records the rural hospital closures across the United States, including information about hospital location, closure year, and facility characteristics. The second dataset (from the United States Department of Agriculture Economic Research Service) provides information about poverty rates that reflects the economic vulnerability at the county level. Together, these datasets allow the comparison and analysis of whether hospital closures have a relationship with economic conditions across different regions of the United States.
+
+Dateset resources link:
+
+Dataset 1: <https://www.shepscenter.unc.edu/programs-projects/rural-health/rural-hospital-closures/>
+
+Dataset 2: <https://www.ers.usda.gov/data-products/county-level-data-sets/county-level-data-sets-download-data>
+
+The analysis of this project addresses the policy and social issues of the United States, as accessibility to healthcare services is an important aspect of community health. By investigating trends and patterns between hospital closures and poverty, the analysis may help policymakers or even healthcare organizations better understand the root cause of the inequality of healthcare accessibility and where regions are most vulnerable, and what support or changes are needed.
+
+According to paper published in Health Services Research (link: <https://pmc.ncbi.nlm.nih.gov/articles/PMC12120529/>, closed rural hospitals had a much higher proportion of ethnic minorities, low-income families, and Medicaid recipients, compared to those that continued to operate. In other words, more hospitals in economically vulnerable areas closed. After the closure of hospitals, the quarterly hospitalization rates and average length of hospital stay among seniors in those areas increased. This appears to be a phenomenon where patients are hospitalized only after their conditions worsen, as it becomes harder to find them, or as they move to larger hospitals further afield. However, contrary to expectations, the rate of readmission or death did not deteriorate dramatically within 30 days. The researchers analyzed that this may be the result of patients finding better facilities, even if they are further away than smaller hospitals that are closed. Right now, the closure of rural hospitals has not led to a significant increase in mortality, but it is having a negative impact on low-income families deepening healthcare inequality and increasing access costs.
+
+There are also ethical considerations and limitations when working with these datasets. Even though the data come from reliable sources, we are aware that the data (value) of the poverty rate that represents economic conditions at the county level, which may not fully directly reflect particular communities (as the mean may outweigh/average out certain areas if the county itself is too large and has unequal accessibility to resources). Also, we are aware of the importance of interpreting results carefully to avoid false conclusions. The purpose of this analysis is not to label regions negatively that results in stigmatization, but to highlight challenges (particularly economically) that affect healthcare access to support better healthcare solutions.
+
+![](hospital_closed.jpeg)
+
+### 1.2: Data Context
+
+To understand the healthcare accessibility changes and their relationship with economic conditions, we combine two datasets. One data track the rural hospital closures and another one records the poverty statistics at the county level across the United States. We link them by using geographic identifiers such as county and state, allowing us to investigate whether hospital closures occur more frequently in economically disadvantaged regions. Together, the combined dataset helps us to investigate broader questions about the inequality in healthcare access and how economic challenges contribute to shaping such conditions.
+
+#### Dataset 1:
+
+Link: <https://www.shepscenter.unc.edu/programs-projects/rural-health/rural-hospital-closures/>
+
+Name of the individuals or organization that created the dataset: the University of North Carolina at Chapel Hill
+
+Dataset description: The data is collected and maintained by the UNC, recording information about hospital closures, including hospital name, address, county, state, number of beds, time (month and year) of closure, etc. The information is generally compiled from hospital announcements, healthcare systems, and government reports to monitor changes in the healthcare services of rural areas. The dataset contains approximately 196 observations and 14 features, where each observation represents a hospital that has closed. It covers closures that have occurred from 2005 to 2025, and is updated periodically as new closures occur. Since the dataset focuses on rural hospital closures across the United States, it provides geographic information that allows researchers to explore patterns across states and counties.
+
+One advantage of this dataset is that it provides a well-organized and maintained record of rural hospital closures, allowing for a precise observation of the trend in healthcare access over time (from 2005 to 2025). However, the limitation is that the dataset focuses only on closures and does not include detailed information about the challenges (like economic conditions) of the surrounding communities. It doesn't support explaining why closures occur (just providing a general overall trend). Therefore, to better understand the factors that may contribute to these closures, it is necessary to combine this dataset with additional data about economic conditions, particularly poverty statistics.
+
+#### Dataset 2:
+
+Link: <https://www.ers.usda.gov/data-products/county-level-data-sets/county-level-data-sets-download-data>
+
+Name of the individuals or organization that created the dataset: the United States Department of Agriculture Economic Research Service
+
+Dataset description: The data provide a wide range of economic indicators for counties across the United States. For this project, we aim to focus on the variables related to economic vulnerability, particularly the poverty rate statistics at the county level. These indicators support understanding of which areas may face financial challenges that could impact the accessibility of the local healthcare services in the region. The dataset includes approximately 4773 observations and 24 features, representing counties across the United States. It includes information about the county name, state abbreviation, poverty rate, etc. These data come from the U.S. Census Bureau as well as other federal statistical sources.
+
+Since this dataset measures economic conditions at the county level by estimating the percentage of individuals living below the federal poverty line as well as other socioeconomic indicators, it has the advanatage of including standardized measurements that allow comparisons across regions and states. This gives this dataset a major strength of providing economic data across different counties, making it useful for identifying patterns of economic conditions in each area. However, one limitation is that poverty rates are estimates and may not fully capture economic differences within counties. In addition, economic conditions can change over time, so a single year's poverty data may not fully represent long-term economic trends, but it still provides insight into the recent economic conditions of counties included in the dataset.
+
+Overall, each dataset provides valuable but incomplete perspectives that are needed to understand rural healthcare challenges. The hospital closure dataset covers where and when hospitals close, while the poverty dataset provides information on the economic conditions of that region. By combining these two datasets through shared geographic identifiers such as county and state, it allows analysis of the relationship between hospital closures (accessibility) and economic conditions (poverty). By better understanding how economic conditions may affect healthcare access in rural areas through this combined data, it could provide valuable insights to policymakers and researchers working on addressing healthcare disparities.
+
+## 3 questions with visualizations
+
+# **Visualization 1: County poverty rate vs number of hospital closures per county** 
+The first visualization is a bar graph answering the question: is there a relationship between county poverty rate and frequency of rural hospital closures? The bar graph shows the number of rural hosptial closures grouped by the county poverty levels (that is categorized into low, medium, and high so allow more direct and allow easier comparison visually; another note is that for the NA categories is those who has missing data for poverty rate value and their hospital closures number that provides a full overall picture of all rural hospital closures despite having missing data for poverty values). This visualization allows quick comparison whether counties with higher poverty rates experiences more hospital closures. From the chart (bar graph) below, we can observe the trends and patterns that suggest a potential relationship between poverty and healthcare accessibility, which high poverty areas does experience significantly higher hospital closures. This provides valuable insights that economic conditions may be linked to hospital sustainability, highlighting disparities in hospital closures across different poverty levels that allows further analysis and statistical testing.
+
+```{r}
+#Laod libraries
+#| fig-alt: "Bar chart showing number of rural hospital closures by county poverty level. High poverty counties have significantly more closures than medium or low poverty counties, suggesting a link between economic vulnerability and hospital sustainability."
+
+library(tidyverse)
+library(dplyr)
+library(stringr)
+library(ggplot2)
+library(plotly)
+
+hospital_closure <- read.csv("Closures-Database-for-Web.csv")
+poverty <- read.csv("Poverty2023.csv")
+
+poverty_clean <- poverty |> 
+  filter(Attribute == "PCTPOVALL_2023") |> 
+  rename(State = Stabr, County = Area_Name) |> 
+  mutate(County = str_remove(County, " County")) |> 
+  mutate(County = str_trim(County))
+
+hospital_closure_clean <- hospital_closure |> 
+  rename(County = "County.district") |> 
+  mutate(County = str_trim(County))
+
+combined_data <- poverty_clean |> 
+  inner_join(hospital_closure_clean, by = c("State", "County"))
+
+combined_level_df <- combined_data |> 
+  mutate(poverty_level = case_when(
+    Value < 10 ~ "low poverty",
+    Value >= 10 & Value < 15 ~ "medium poverty",
+    Value > 15 ~ "high poverty"
+  ))
+
+closures_by_poverty <- combined_level_df |> 
+  group_by(poverty_level) |> 
+  summarise(closure_number = n())
+
+ggplot(data = closures_by_poverty) + 
+  geom_col(aes(x = poverty_level, 
+               y = closure_number, 
+               fill = poverty_level,
+               text = paste("Poverty Level:", poverty_level,
+                            "<br>Hospital Closures:", closure_number))) +
+  labs(title = "County Poverty Rate vs Number of Hospital Closures per County",
+       subtitle = "Comparing rural hospital closure frequency across low, medium, and high poverty counties in the U.S.",
+       caption = "Source: UNC Rural Hospital Closures Database & USDA Economic Research Service (2023). Counties categorized by poverty rate: low (<10%), medium (10–15%), high (>15%).",
+       x = "Poverty Level",
+       y = "Number of Hospital Closures") +
+  theme_minimal()
+
+
+```
+
+Coding Note: In this section, we used several basic tools include filter() to select relevant poverty data, mutate() to clean county names and create a categorial poverty variable, rename() to standardize column names, group_by() and summarise() to count hospital closures by category as well as arrange() to sort results that allows more direct and easier interpretation. One tool that was used but not covered in lectures was case_when(). It allowed the conditional transformation of continuous poverty rates into meaningful categories that allow easier (more direct comparison), which shows how low, medium, and high poverty values have differences in the number of hospital closures as well as their patterns and trends. In addition, one intermediate string tool, str_remove() was also a function used but not covered in lectures to clean county name strings. It allows proper joining of datasets. Together, using these tools helped transform raw data into an organized format suitable for visualization, allowing us to efficiently explore the relationship between county poverty and rural hospital closures.
+
+# **Visualization 2:** States with Highest Concentration of High-Poverty Closures
+
+The second visualization is a bar graph answering the question: Are certain states experiencing a higher concentration of hospital closures in high poverty? In our previous analysis, we confirmed that there are many closures in "high poverty" areas where the poverty rate is more than 15%. This Bar Graph shows the top 10 states, especially which states are most severely affected.
+
+```{r}
+high_poverty_focus <- combined_level_df |> 
+  filter(poverty_level == "high poverty") |> 
+  group_by(State) |> 
+  summarize(total_closures = n()) |> 
+  arrange(desc(total_closures)) |> 
+  slice_head(n = 10)
+
+plot2 <- ggplot(data = high_poverty_focus) +
+  geom_col(aes(x = reorder(State, total_closures),
+               y = total_closures,
+               fill = total_closures,
+               text = paste("State:", State,
+                            "<br>Hospital Closures:", total_closures))) +
+  coord_flip() +
+  scale_fill_gradient(low = "#FEE0D2", high = "#DE2D26") +
+  labs(
+    title = "States with Highest Concentration of High-Poverty Closures",
+    x = "State",
+    y = "Number of Hospital Closures",
+    fill = "Closure Count"
+  ) +
+  theme_minimal()
+
+# Convert to interactive plot
+ggplotly(plot2, tooltip = "text")
+```
+
+Coding note: All basic tools used were covered in class. To improve the readability of the visualization, we used reorder() to sort the bar graph in order of closure counts so the states with the highest values appear first. We also used coord_flip() to rotate the bar graph horizontally so that the state names do not overlap and remain easy to read. Finally, we used scale_fill_gradient() to adjust the color intensity of the bars based on the number of hospital closures, allowing higher values to appear darker and making patterns in the data easier to identify.
+
+# **Visualization 3: Rural hospital closures change over time in the United States** 
+The third visualization is an animated line graph showing how rural hospital closures have changed over time across the United States. The graph tracks the cumulative number of closures each year, allowing us to observe trends and growth in closures from 2005 to 2025. By animating the line, viewers can see how closures gradually accumulate year by year, rather than observing the total at once. This visualization highlights periods with higher rates of closures and allows comparison of trends over time, providing insight into how healthcare accessibility in rural areas has evolved.
+```{r}
+library(tidyverse)
+library(gganimate)
+library(gifski)
+
+# Summarize closures by year and cumulative closures
+closures_by_year <- combined_level_df |>
+  group_by(Closure.Year) |>
+  summarize(total_closures = n()) |>
+  arrange(Closure.Year) |>
+  mutate(cumulative_closures = cumsum(total_closures))  # cumulative line
+
+# Create animated plot
+plot <- ggplot(closures_by_year, aes(x = Closure.Year, y = cumulative_closures, group = 1)) +
+  geom_line(color = "blue", linewidth = 1.2) +
+  geom_point(color = "darkred", size = 3) +
+  labs(title = "Rural Hospital Closures in the United States Over Time",
+  subtitle = "Year: {frame_along}", x = "Year", y = "Cumulative Number of Hospital Closures") +
+  theme_minimal() + transition_reveal(Closure.Year)
+
+anim <- animate(plot, fps = 10, duration = 6, renderer = gifski_renderer())
+anim_save("hospital_closures_animation.gif", animation = anim)
+anim
+```
+Coding note: All basic tools used were covered in class. To examine trends in hospital closures over time, we grouped the data by closure year using group_by() and calculated the number of closures per year using summarize(). We then created a line graph to visualize the trend. To enhance the visualization, we used the gganimate library and the transition_reveal() function to animate the graph so that closures appear gradually over time. This allows viewers to observe how hospital closures accumulate year by year rather than seeing the entire trend at once, making the progression easier to interpret.
+
+# Conclusions
+
+### Takeaways:
+
+The analysis of hospital closures uncovers three major takeaways related to the relationship between economic conditions and healthcare accessibility.
+
+We have observed a strong relationship between hospital closures and areas with high poverty rates, particularly counties with poverty rates above 15%. Hospitals in these communities are facing greater financial challenges, making it harder to maintain their healthcare infrastructure and operations. The number of hospital closures in high-poverty regions suggests that areas with fewer economic resources may struggle to support their healthcare systems, worsening its existing health disparities.
+
+We have found 'local concentrations' where hospital closures are more frequent in certain states, particularly in high-poverty counties in the South and Midwest. This suggests that hospital closures are not just a nationwide phenomenon, but a medical desert issue closely related to the economic structure of a particular region.
+
+When analyzing the number of beds in closed hospitals, smaller hospitals are more vulnerable to economic shocks. The closure of small community hospitals has severely damaged the access to emergency medical care for residents in the area.
+
+### Over/underestimating:
+
+Our team believes that the current data underestimates the actual crisis situation, because this dataset only records 'completely closed' or 'facility transition'. Cases of hospitals that were not actually closed but were reduction of essential services, such as ER and obstetrics and gynecology, were not included in the figures. So the medical gaps felt by local residents will be far worse than the statistics.
+
+The poverty data we analyzed is only a fragmentary view, with limits to reflecting both the long-term impact of decades of accumulated economic decline on hospitals' finances.
+
+### Future Discussions:
+
+In the next phase, we want to measure the "extra distance" that residents will have to travel to the nearest healthcare facility after the closure of the hospital. This will give us a better idea of the impact on community health outcomes..
+
+By adding policy variables such as whether to expand Medicaid by state, we would like to analyze which policies were effective in preventing hospital closures in high-poverty areas.
+
